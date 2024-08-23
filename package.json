@@ -1,0 +1,11 @@
+{
+  "name": "practice4",
+  "version": "1.0.0",
+  "description": "It is one of my practice project with node js for backend from chai aur code...",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ritwik Kundu",
+  "license": "ISC"
+}
