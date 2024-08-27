@@ -9,21 +9,18 @@ dotenv.config({
 })
 
 DB()
-.then(()=>{
-    app.listen(process.env.PORT||8000,(err)=>{
-        if(err){
-            console.log("app listining is fail : ",err);
-        } 
-        else{
-            console.log("Your app is listen in port : ",process.env.PORT);
-        }
-    })
+.then(() => {
+    app.listen(process.env.PORT || 3000, (err) => { // Set a default port if process.env.PORT is not defined
+      if (err) {
+        console.log("App listen is fail !!!");
+      } else {
+        console.log("App is running on port: ", process.env.PORT || 3000);
+      }
+    });
 })
-.catch((err)=>{
-    console.log("Mongodb connection fail !!!");
-})
-
-
+.catch((err) => {
+    console.log("Mongodb connection failed !!! Error: ", err);
+});
 
 
 
