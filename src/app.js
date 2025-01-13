@@ -19,7 +19,7 @@ app.use(cookieParser())
 
 
 //routes import
-
+// console.log("coming in route...")
 import userRoutes from "./routes/user.routes.js";
 
 // routes declaration

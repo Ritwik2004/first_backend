@@ -1,7 +1,6 @@
-import mongoose,{ Schema } from "mongoose";
+import mongoose, {Schema} from "mongoose";
 import jwt from "jsonwebtoken"
 import bcrypt from "bcrypt"
-
 
 const userSchema = new Schema(
     {
@@ -9,50 +8,44 @@ const userSchema = new Schema(
             type: String,
             required: true,
             unique: true,
-            trim: true,
-            lowecase: true,
+            lowercase: true,
+            trim: true, 
             index: true
         },
-        
         email: {
             type: String,
-            required: [true, "Email is requird"],
+            required: true,
             unique: true,
-            trim: true,
             lowecase: true,
+            trim: true, 
         },
-
         fullname: {
             type: String,
             required: true,
-            trim: true,
+            trim: true, 
             index: true
         },
-
         avatar: {
-            type: String, //cloudinary url
-            required: true,
+            type: String, // cloudinary url
+            // required: true,
         },
-
         coverImage: {
-            type: String, //cloudinary url
+            type: String, // cloudinary url
         },
-
         watchHistory: [
             {
                 type: Schema.Types.ObjectId,
                 ref: "Video"
             }
         ],
-
         password: {
             type: String,
-            required: [true, "Password is required"]
+            required: [true, 'Password is required']
         },
-
         refreshToken: {
             type: String
         }
+
     },
     {
         timestamps: true
@@ -84,6 +77,7 @@ userSchema.methods.generateAccessToken = function(){
         }
     )
 }
+
 userSchema.methods.generateRefreshToken = function(){
     return jwt.sign(
         {
@@ -96,5 +90,5 @@ userSchema.methods.generateRefreshToken = function(){
         }
     )
 }
-
-export const {User} = mongoose.model("User", userSchema)
+// console.log("User model executed successfully...")
+export const User = mongoose.model("User", userSchema)

@@ -5,7 +5,7 @@ import DB from "./db/DB_Connection.js";
 import {app} from "./app.js"
 
 dotenv.config({
-    path: "./env"
+    path: "./.env"
 })
 
 DB()
